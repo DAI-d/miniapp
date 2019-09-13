@@ -1,0 +1,24 @@
+<!-- <div class="contents row">
+  <%= form_tag('/tweets', method: :post) do %>
+    <h3>
+      投稿する？
+    </h3>
+    <input placeholder="画像のURL" type="text" name="image">
+    <textarea cols="30" name="text" placeholder="本文" rows="10"></textarea>
+    <input type="submit" value="投稿する">
+  <% end %>
+</div> -->
+
+<div class="contents row">
+<%= form_with url: tweets_path do |f| %>
+    <h3>
+      投稿する？
+    </h3>
+<%= f.text_field :image, :placeholder => "imageURL"%>
+<%= f.text_field :text, :placeholder => "text"%>
+<%= f.date_select :date %>
+  <%= f.label :入力内容を確認しましたか？ %>
+  <%= f.check_box :checkbox, id: :samurai_checkbox,:as => :boolean%>
+<%= f.submit value="投稿する"%>
+  <% end %>
+</div>
